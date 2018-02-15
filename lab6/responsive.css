@@ -41,7 +41,7 @@
   }
 }
 /*large screens-------------*/
-@media screen and(min-width:1824){
+@media screen and(min-width:1824px){
   body{
     background: #ffc0cb;
   }
