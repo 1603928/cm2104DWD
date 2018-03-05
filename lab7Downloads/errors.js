@@ -1,4 +1,4 @@
-function main () {
+function main() {
 	var a;
 	var b;
 	var c;
