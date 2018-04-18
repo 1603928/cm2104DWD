@@ -110,8 +110,9 @@ app.post('/dologin', function(req, res) {
   var pword = req.body.password;
 
   db.collection('people').findOne({"login.username":uname}, function(err, result) {
-    console.log("Got here")
+
     if (err) throw err;//if there is an error, throw the error
+    console.log("Got here")
     //if there is no result, redirect the user back to the login system as that username must not exist
     if(!result){res.redirect('/login');return}
     //if there is a result then check the password, if the password is correct set session loggedin to true and send the user to the index
