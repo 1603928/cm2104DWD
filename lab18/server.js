@@ -15,7 +15,7 @@ const session = require('express-session'); //npm install express-session
 const bodyParser = require('body-parser'); //npm install body-parser
 const app = express();
 
-//this tells express we are using sesssions. These are variables that only belong to one user of the site at a time.
+//this tells express we are using sessions. These are variables that only belong to one user of the site at a time.
 app.use(session({ secret: 'example' }));
 
 app.use(bodyParser.urlencoded({
@@ -88,7 +88,7 @@ app.get('/remuser', function(req, res) {
   if(!req.session.loggedin){res.redirect('/login');return;}
   res.render('pages/remuser')
 });
-//logour route cause the page to Logout.
+//logout route cause the page to Logout.
 //it sets our session.loggedin to false and then redirects the user to the login
 app.get('/logout', function(req, res) {
   req.session.loggedin = false;
