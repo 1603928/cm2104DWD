@@ -15,7 +15,7 @@ const session = require('express-session'); //npm install express-session
 const bodyParser = require('body-parser'); //npm install body-parser
 const app = express();
 
-//this tells express we are using sessions. These are variables that only belong to one user of the site at a time.
+//this tells express we are using sesssions. These are variables that only belong to one user of the site at a time.
 app.use(session({ secret: 'example' }));
 
 app.use(bodyParser.urlencoded({
@@ -88,7 +88,7 @@ app.get('/remuser', function(req, res) {
   if(!req.session.loggedin){res.redirect('/login');return;}
   res.render('pages/remuser')
 });
-//logout route cause the page to Logout.
+//logour route cause the page to Logout.
 //it sets our session.loggedin to false and then redirects the user to the login
 app.get('/logout', function(req, res) {
   req.session.loggedin = false;
@@ -110,9 +110,7 @@ app.post('/dologin', function(req, res) {
   var pword = req.body.password;
 
   db.collection('people').findOne({"login.username":uname}, function(err, result) {
-
     if (err) throw err;//if there is an error, throw the error
-    console.log("Got here")
     //if there is no result, redirect the user back to the login system as that username must not exist
     if(!result){res.redirect('/login');return}
     //if there is a result then check the password, if the password is correct set session loggedin to true and send the user to the index
